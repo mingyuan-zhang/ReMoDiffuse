@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1>MotionDiffuse: Text-Driven Human Motion Generation with Diffusion Model</h1>
+<h1>ReMoDiffuse: Retrieval-Augmented Motion Diffusion Model</h1>
 
 <div>
     <a href='https://mingyuan-zhang.github.io/' target='_blank'>Mingyuan Zhang</a><sup>1</sup>&emsp;
