@@ -26,16 +26,12 @@
 <h4 align="center">
   <a href="https://mingyuan-zhang.github.io/projects/ReMoDiffuse.html" target='_blank'>[Project Page]</a> •
   <a href="https://arxiv.org/abs/2304.xxxxx" target='_blank'>[arXiv]</a> •
-  <a href="https://youtu.be/NeFezKIl7GE" target='_blank'>[Video]</a>
+  <a href="https://youtu.be/NeFezKIl7GE" target='_blank'>[Video]</a> <br>
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=mingyuan-zhang/ReMoDiffuse" width="8%" alt="visitor badge"/>
 </h4>
 
 </div>
 
-<div>
-The code will be available soon.
-</div>
-
-![visitors](https://visitor-badge.laobi.icu/badge?page_id=mingyuan-zhang/ReMoDiffuse)
 
 >**Abstract:** 3D human motion generation is crucial for creative industry. Recent advances rely on generative models with domain knowledge for text-driven motion generation, leading to substantial progress in capturing common motions. However, the performance on more diverse motions remains unsatisfactory. In this work, we propose **ReMoDiffuse**, a diffusion-model-based motion generation framework that integrates a retrieval mechanism to refine the denoising process.
 
@@ -47,3 +43,6 @@ The code will be available soon.
 </div>
 
 >**Pipeline Overview:** ReMoDiffuse is a retrieval-augmented 3D human motion diffusion model. Benefiting from the extra knowledge from the retrieved samples, ReMoDiffuse is able to achieve high-fidelity on the given prompts. It contains three core components: a) **Hybrid Retrieval** database stores multi-modality features of each motion sequence. b) Semantics-modulated transformer incorporates several identical decoder layers, including a **Semantics-Modulated Attention (SMA)** layer and an FFN layer. The SMA layer will adaptively absorb knowledge from both retrived samples and the given prompts. c) **Condition Mxture** technique is proposed to better mix model's outputs under different combinations of conditions.
+
+
+The code will be available soon.
