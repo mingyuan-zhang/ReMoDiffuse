@@ -3,12 +3,12 @@
 <h1>MotionDiffuse: Text-Driven Human Motion Generation with Diffusion Model</h1>
 
 <div>
-    <a href='https://mingyuan-zhang.github.io/' target='_blank'>Mingyuan Zhang</a><sup>1</sup>;
-    <a href='https://gxyes.github.io/' target='_blank'>Xinying Guo</a><sup>1</sup>;
+    <a href='https://mingyuan-zhang.github.io/' target='_blank'>Mingyuan Zhang</a><sup>1</sup>
+    <a href='https://gxyes.github.io/' target='_blank'>Xinying Guo</a><sup>1</sup>
     <a href='https://scholar.google.com/citations?user=lSDISOcAAAAJ&hl=zh-CN' target='_blank'>Liang Pan</a><sup>1</sup>&emsp;
-    <a href='https://caizhongang.github.io/' target='_blank'>Zhongang Cai</a><sup>1,2</sup>;
-    <a href='https://hongfz16.github.io/' target='_blank'>Fangzhou Hong</a><sup>1</sup>&emsp;
-    <a href='https://www.linkedin.com/in/huirong-li' target='_blank'>Huirong Li</a><sup>1</sup>&emsp;
+    <a href='https://caizhongang.github.io/' target='_blank'>Zhongang Cai</a><sup>1,2</sup>
+    <a href='https://hongfz16.github.io/' target='_blank'>Fangzhou Hong</a><sup>1</sup>
+    <a href='https://www.linkedin.com/in/huirong-li' target='_blank'>Huirong Li</a><sup>1</sup>&emsp; <br>
     <a href='https://yanglei.me/' target='_blank'>Lei Yang</a><sup>2</sup>&emsp;
     <a href='https://liuziwei7.github.io/' target='_blank'>Ziwei Liu</a><sup>1+</sup>
 </div>
