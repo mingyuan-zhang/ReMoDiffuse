@@ -26,7 +26,7 @@
 <h4 align="center">
   <a href="https://mingyuan-zhang.github.io/projects/ReMoDiffuse.html" target='_blank'>[Project Page]</a> •
   <a href="https://arxiv.org/abs/2304.xxxxx" target='_blank'>[arXiv]</a> •
-  <a href="https://youtu.be/NeFezKIl7GE" target='_blank'>[Video]</a> <br>
+  <a href="https://youtu.be/NeFezKIl7GE" target='_blank'>[Video]</a> <br> <br>
   <img src="https://visitor-badge.laobi.icu/badge?page_id=mingyuan-zhang/ReMoDiffuse" width="8%" alt="visitor badge"/>
 </h4>
 
