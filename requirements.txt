@@ -1,0 +1,5 @@
+ftfy
+regex
+tqdm
+scipy
+git+https://github.com/openai/CLIP.git
