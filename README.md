@@ -48,6 +48,14 @@
 
 [09/2023] Release code for [ReMoDiffuse](https://mingyuan-zhang.github.io/projects/ReMoDiffuse.html) and [MotionDiffuse](https://mingyuan-zhang.github.io/projects/MotionDiffuse.html)
 
+## Benchmark and Model Zoo
+
+#### Supported methods
+
+- [x] [MotionDiffuse](https://mingyuan-zhang.github.io/projects/ReMoDiffuse.html)
+- [x] [MDM](https://guytevet.github.io/mdm-page/)
+- [x] [ReMoDiffuse](https://mingyuan-zhang.github.io/projects/MotionDiffuse.html)
+
 
 ## Citation
 
@@ -105,7 +113,8 @@ ReMoDiffuse
 ├── configs
 ├── logs
 │   ├── motiondiffuse
-│   └── remodiffuse
+│   ├── remodiffuse
+│   └── mdm
 └── data
     ├── database
     ├── datasets

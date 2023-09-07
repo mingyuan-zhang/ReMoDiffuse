@@ -118,6 +118,8 @@ class MotionDiffusion(BaseArchitecture):
                     eta=0,
                     **inference_kwargs
                 )
+            if getattr(self.model, "post_process") is not None:
+                output = self.model.post_process(output)
             results = kwargs
             results['pred_motion'] = output
             results = self.split_results(results)
