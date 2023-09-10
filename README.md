@@ -26,7 +26,8 @@
 <h4 align="center">
   <a href="https://mingyuan-zhang.github.io/projects/ReMoDiffuse.html" target='_blank'>[Project Page]</a> •
   <a href="https://arxiv.org/abs/2304.01116" target='_blank'>[arXiv]</a> •
-  <a href="https://youtu.be/wSddrIA_2p8" target='_blank'>[Video]</a> <br> <br>
+  <a href="https://youtu.be/wSddrIA_2p8" target='_blank'>[Video]</a> •
+  <a href="https://colab.research.google.com/drive/1jztE7c8js3P4YFbw5cGNPJAsCVrreTov?usp=sharing" target='_blank'>[Colab Demo]</a> <br> <br>
   <img src="https://visitor-badge.laobi.icu/badge?page_id=mingyuan-zhang/ReMoDiffuse" width="8%" alt="visitor badge"/>
 </h4>
 
@@ -45,6 +46,8 @@
 >**Pipeline Overview:** ReMoDiffuse is a retrieval-augmented 3D human motion diffusion model. Benefiting from the extra knowledge from the retrieved samples, ReMoDiffuse is able to achieve high-fidelity on the given prompts. It contains three core components: a) **Hybrid Retrieval** database stores multi-modality features of each motion sequence. b) Semantics-modulated transformer incorporates several identical decoder layers, including a **Semantics-Modulated Attention (SMA)** layer and an FFN layer. The SMA layer will adaptively absorb knowledge from both retrived samples and the given prompts. c) **Condition Mxture** technique is proposed to better mix model's outputs under different combinations of conditions.
 
 ## Updates
+
+[09/2023] Add a [Colab Demo](https://colab.research.google.com/drive/1jztE7c8js3P4YFbw5cGNPJAsCVrreTov?usp=sharing)! [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1jztE7c8js3P4YFbw5cGNPJAsCVrreTov?usp=sharing)
 
 [09/2023] Release code for [ReMoDiffuse](https://mingyuan-zhang.github.io/projects/ReMoDiffuse.html) and [MotionDiffuse](https://mingyuan-zhang.github.io/projects/MotionDiffuse.html)
 

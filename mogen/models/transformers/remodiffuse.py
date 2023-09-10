@@ -282,6 +282,9 @@ class ReMoDiffuseTransformer(DiffusionTransformer):
             re_dict = self.database(text, motion_length, self.clip, device, idx=sample_idx)
         output['re_dict'] = re_dict
         return output
+    
+    def post_process(self, motion):
+        return motion
 
     def forward_train(self, h=None, src_mask=None, emb=None, xf_out=None, re_dict=None, **kwargs):
         B, T = h.shape[0], h.shape[1]

@@ -23,6 +23,9 @@ class MotionDiffuseTransformer(DiffusionTransformer):
             xf_proj, xf_out = self.encode_text(text, clip_feat, device)
         return {'xf_proj': xf_proj, 'xf_out': xf_out}
 
+    def post_process(self, motion):
+        return motion
+
     def forward_train(self, h=None, src_mask=None, emb=None, xf_out=None, **kwargs):
         B, T = h.shape[0], h.shape[1]
         for module in self.temporal_decoder_blocks:

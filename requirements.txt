@@ -2,4 +2,5 @@ ftfy
 regex
 tqdm
 scipy
+matplotlib==3.3.1
 git+https://github.com/openai/CLIP.git
