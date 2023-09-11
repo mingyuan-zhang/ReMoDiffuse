@@ -32,37 +32,6 @@ ff_size = 1024
 num_heads = 8
 dropout = 0
 
-def scale_func(timestep):
-    import random
-    w = (1 - (1000 - timestep) / 1000) * 6.5 + 1
-    if timestep > 100:
-        if random.randint(0, 1) == 0:
-            output = {
-                'both_coef': w,
-                'text_coef': 0,
-                'retr_coef': 1 - w,
-                'none_coef': 0
-            }
-        else:
-            output = {
-                'both_coef': 0,
-                'text_coef': w,
-                'retr_coef': 0,
-                'none_coef': 1 - w
-            }
-    else:
-        both_coef = 0.52351
-        text_coef = -0.28419
-        retr_coef = 2.39872
-        none_coef = 1 - both_coef - text_coef - retr_coef
-        output = {
-            'both_coef': both_coef,
-            'text_coef': text_coef,
-            'retr_coef': retr_coef,
-            'none_coef': none_coef
-        }
-    return output
-
 # model settings
 model = dict(
     type='MotionDiffusion',
@@ -121,7 +90,12 @@ model = dict(
                 dropout=dropout
             ),
         ),
-        scale_func=scale_func
+        scale_func_cfg=dict(
+            coarse_scale=6.5,
+            both_coef=0.52351,
+            text_coef=-0.28419,
+            retr_coef=2.39872
+        )
     ),
     loss_recon=dict(type='MSELoss', loss_weight=1, reduction='none'),
     diffusion_train=dict(

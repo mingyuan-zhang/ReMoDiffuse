@@ -260,11 +260,42 @@ class RetrievalDatabase(nn.Module):
 class ReMoDiffuseTransformer(DiffusionTransformer):
     def __init__(self,
                  retrieval_cfg=None,
-                 scale_func=None,
+                 scale_func_cfg=None,
                  **kwargs):
         super().__init__(**kwargs)
         self.database = RetrievalDatabase(**retrieval_cfg)
-        self.scale_func = scale_func
+        self.scale_func_cfg = scale_func_cfg
+        
+    def scale_func(self, timestep):
+        coarse_scale = self.scale_func_cfg['coarse_scale']
+        w = (1 - (1000 - timestep) / 1000) * coarse_scale + 1
+        if timestep > 100:
+            if random.randint(0, 1) == 0:
+                output = {
+                    'both_coef': w,
+                    'text_coef': 0,
+                    'retr_coef': 1 - w,
+                    'none_coef': 0
+                }
+            else:
+                output = {
+                    'both_coef': 0,
+                    'text_coef': w,
+                    'retr_coef': 0,
+                    'none_coef': 1 - w
+                }
+        else:
+            both_coef = self.scale_func_cfg['both_coef']
+            text_coef = self.scale_func_cfg['text_coef']
+            retr_coef = self.scale_func_cfg['retr_coef']
+            none_coef = 1 - both_coef - text_coef - retr_coef
+            output = {
+                'both_coef': both_coef,
+                'text_coef': text_coef,
+                'retr_coef': retr_coef,
+                'none_coef': none_coef
+            }
+        return output
             
     def get_precompute_condition(self, 
                                  text=None,
@@ -282,7 +313,7 @@ class ReMoDiffuseTransformer(DiffusionTransformer):
             re_dict = self.database(text, motion_length, self.clip, device, idx=sample_idx)
         output['re_dict'] = re_dict
         return output
-    
+
     def post_process(self, motion):
         return motion
 
