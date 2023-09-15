@@ -28,6 +28,7 @@
   <a href="https://arxiv.org/abs/2304.01116" target='_blank'>[arXiv]</a> •
   <a href="https://youtu.be/wSddrIA_2p8" target='_blank'>[Video]</a> •
   <a href="https://colab.research.google.com/drive/1jztE7c8js3P4YFbw5cGNPJAsCVrreTov?usp=sharing" target='_blank'>[Colab Demo]</a> <br> <br>
+  Accepted to <a href="https://iccv2023.thecvf.com/" target="_blank"><strong>ICCV 2023</strong></a></h2>
   <img src="https://visitor-badge.laobi.icu/badge?page_id=mingyuan-zhang/ReMoDiffuse" width="8%" alt="visitor badge"/>
 </h4>
 
