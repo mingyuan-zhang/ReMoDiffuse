@@ -10,7 +10,9 @@ from mmcv.parallel import MMDataParallel
 from mogen.utils.plot_utils import (
     recover_from_ric,
     plot_3d_motion,
-    t2m_kinematic_chain 
+    t2m_kinematic_chain,
+    plot_3d_motion_kit,
+    kit_kinematic_chain
 )
 from scipy.ndimage import gaussian_filter
 
@@ -29,10 +31,16 @@ def plot_t2m(data, result_path, npy_path, caption):
     if npy_path is not None:
         np.save(npy_path, joint)
 
+def plot_kit(data, result_path, npy_path, caption): 
+    joint = recover_from_ric(torch.from_numpy(data).float(), 22).numpy()
+    joint = motion_temporal_filter(joint, sigma=2.5)
+    plot_3d_motion_kit(result_path, kit_kinematic_chain, joint, title=caption, fps=20)
+    if npy_path is not None:
+        np.save(npy_path, joint)
 
 def parse_args():
     parser = argparse.ArgumentParser(description='mogen evaluation')
-    parser.add_argument('config', help='test config file path')
+    parser.add_argument('config', help='test config file path') # kit(configs/remodiffuse/remodiffuse_kit.py)
     parser.add_argument('checkpoint', help='checkpoint file')
     parser.add_argument('--text', help='motion description')
     parser.add_argument('--motion_length', type=int, help='expected motion length')
@@ -87,16 +95,27 @@ def main():
     model.eval()
     
     dataset_name = cfg.data.test.dataset_name
-    assert dataset_name == "human_ml3d"
-    mean_path = "data/datasets/human_ml3d/mean.npy"
-    std_path = "data/datasets/human_ml3d/std.npy"
-    mean = np.load(mean_path)
-    std = np.load(std_path)
-    
+    print("dataset_name",dataset_name)
+    if dataset_name == 'human_ml3d':
+        #assert dataset_name == "human_ml3d"
+        mean_path = "data/datasets/human_ml3d/mean.npy"
+        std_path = "data/datasets/human_ml3d/std.npy"
+        mean = np.load(mean_path)
+        std = np.load(std_path)      
+    else:  
+        #assert dataset_name == "kit_ml"
+        mean_path = "data/datasets/kit_ml/mean.npy"
+        std_path = "data/datasets/kit_ml/std.npy"
+        mean = np.load(mean_path)
+        std = np.load(std_path)
+         
     device = args.device
     text = args.text
     motion_length = args.motion_length
-    motion = torch.zeros(1, motion_length, 263).to(device)
+    if dataset_name == 'human_ml3d':
+        motion = torch.zeros(1, motion_length, 263).to(device)
+    else:
+        motion = torch.zeros(1, motion_length, 251).to(device)
     motion_mask = torch.ones(1, motion_length).to(device)
     motion_length = torch.Tensor([motion_length]).long().to(device)
     model = model.to(device)
@@ -115,9 +134,12 @@ def main():
         output = model(**input)[0]['pred_motion']
         pred_motion = output.cpu().detach().numpy()
         pred_motion = pred_motion * std + mean
-
-    plot_t2m(pred_motion, args.out, args.pose_npy, text)
-
+    
+    if dataset_name == 'human_ml3d':
+        plot_t2m(pred_motion, args.out, args.pose_npy, text)
+    else:
+        plot_kit(pred_motion, args.out, args.pose_npy, text)
+    
 
 if __name__ == '__main__':
     main()
